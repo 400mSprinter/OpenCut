@@ -280,6 +280,16 @@
       border-top: 1px solid var(--card-border); margin-top: 40px;
     }
 
+    /* Twemoji images */
+    img.emoji {
+      height: 1.2em;
+      width: 1.2em;
+      vertical-align: -0.2em;
+      display: inline-block;
+    }
+    .team-flag img.emoji { height: 2.4em; width: 2.4em; vertical-align: middle; }
+    .hero-flag img.emoji { height: 72px; width: 72px; }
+
     @media (max-width: 600px) {
       .teams { gap: 10px; }
       .team-flag { font-size: 30px; }
@@ -822,5 +832,11 @@
   <p style="margin-top:6px;">자료 기준: 2026년 5월 30일 &nbsp;|&nbsp; 모든 시간 KST (한국 표준시, UTC+9) 기준</p>
 </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+    });
+  </script>
 </body>
 </html>
