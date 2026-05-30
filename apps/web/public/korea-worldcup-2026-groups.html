@@ -88,20 +88,29 @@
     .match-teams {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 12px;
       flex: 1;
     }
 
     .flag { font-size: 16px; line-height: 1; display: inline-block; }
     .flag img.emoji { height: 16px; width: 16px; vertical-align: -2px; }
 
-    .team-name { flex: 1; }
+    .team-name { flex: 0 1 auto; font-size: 13px; }
+
+    .vs {
+      color: var(--subtext);
+      font-size: 11px;
+      font-weight: 600;
+      flex: 0 0 auto;
+      text-transform: uppercase;
+    }
 
     .match-date {
       text-align: right;
       color: var(--gold);
       font-weight: 600;
       font-size: 12px;
+      flex-shrink: 0;
     }
 
     .legend {
@@ -144,20 +153,28 @@
       <div class="group-header">A조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇲🇽</span><span class="team-name">멕시코</span></div>
+          <div class="match-teams"><span class="flag">🇲🇽</span><span class="team-name">멕시코</span><span class="vs">vs</span><span class="flag">🇨🇿</span><span class="team-name">체코</span></div>
           <div class="match-date">6/11</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇰🇷</span><span class="team-name">대한민국</span></div>
-          <div class="match-date">6/12</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇨🇿</span><span class="team-name">체코</span></div>
-          <div class="match-date">6/12</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇿🇦</span><span class="team-name">남아공</span></div>
+          <div class="match-teams"><span class="flag">🇰🇷</span><span class="team-name">대한민국</span><span class="vs">vs</span><span class="flag">🇿🇦</span><span class="team-name">남아공</span></div>
           <div class="match-date">6/11</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇰🇷</span><span class="team-name">대한민국</span><span class="vs">vs</span><span class="flag">🇨🇿</span><span class="team-name">체코</span></div>
+          <div class="match-date">6/12</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇽</span><span class="team-name">멕시코</span><span class="vs">vs</span><span class="flag">🇿🇦</span><span class="team-name">남아공</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇿🇦</span><span class="team-name">남아공</span><span class="vs">vs</span><span class="flag">🇨🇿</span><span class="team-name">체코</span></div>
+          <div class="match-date">6/18</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇽</span><span class="team-name">멕시코</span><span class="vs">vs</span><span class="flag">🇰🇷</span><span class="team-name">대한민국</span></div>
+          <div class="match-date">6/18</div>
         </div>
       </div>
     </div>
@@ -167,20 +184,28 @@
       <div class="group-header">B조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
-          <div class="match-date">6/13</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇪🇪</span><span class="team-name">네덜란드</span></div>
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span><span class="vs">vs</span><span class="flag">🇳🇱</span><span class="team-name">네덜란드</span></div>
           <div class="match-date">6/12</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇸🇦</span><span class="team-name">사우디아라비아</span></div>
+          <div class="match-teams"><span class="flag">🇸🇦</span><span class="team-name">사우디아라비아</span><span class="vs">vs</span><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span></div>
           <div class="match-date">6/12</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">니제르</span></div>
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span><span class="vs">vs</span><span class="flag">🇸🇦</span><span class="team-name">사우디아라비아</span></div>
           <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇱</span><span class="team-name">네덜란드</span><span class="vs">vs</span><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span><span class="vs">vs</span><span class="flag">🇳🇱</span><span class="team-name">네덜란드</span></div>
+          <div class="match-date">6/19</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇦</span><span class="team-name">사우디아라비아</span><span class="vs">vs</span><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
+          <div class="match-date">6/19</div>
         </div>
       </div>
     </div>
@@ -190,20 +215,28 @@
       <div class="group-header">C조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇪🇸</span><span class="team-name">스페인</span></div>
+          <div class="match-teams"><span class="flag">🇪🇸</span><span class="team-name">스페인</span><span class="vs">vs</span><span class="flag">🇮🇹</span><span class="team-name">이탈리아</span></div>
           <div class="match-date">6/13</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇭🇷</span><span class="team-name">크로아티아</span></div>
+          <div class="match-teams"><span class="flag">🇭🇷</span><span class="team-name">크로아티아</span><span class="vs">vs</span><span class="flag">🇦🇱</span><span class="team-name">알바니아</span></div>
           <div class="match-date">6/14</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇮🇹</span><span class="team-name">이탈리아</span></div>
-          <div class="match-date">6/13</div>
+          <div class="match-teams"><span class="flag">🇪🇸</span><span class="team-name">스페인</span><span class="vs">vs</span><span class="flag">🇦🇱</span><span class="team-name">알바니아</span></div>
+          <div class="match-date">6/15</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇦🇱</span><span class="team-name">알바니아</span></div>
-          <div class="match-date">6/14</div>
+          <div class="match-teams"><span class="flag">🇮🇹</span><span class="team-name">이탈리아</span><span class="vs">vs</span><span class="flag">🇭🇷</span><span class="team-name">크로아티아</span></div>
+          <div class="match-date">6/15</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇱</span><span class="team-name">알바니아</span><span class="vs">vs</span><span class="flag">🇮🇹</span><span class="team-name">이탈리아</span></div>
+          <div class="match-date">6/20</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇭🇷</span><span class="team-name">크로아티아</span><span class="vs">vs</span><span class="flag">🇪🇸</span><span class="team-name">스페인</span></div>
+          <div class="match-date">6/20</div>
         </div>
       </div>
     </div>
@@ -213,20 +246,28 @@
       <div class="group-header">D조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span></div>
+          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span><span class="vs">vs</span><span class="flag">🇩🇪</span><span class="team-name">독일</span></div>
           <div class="match-date">6/14</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇩🇪</span><span class="team-name">독일</span></div>
-          <div class="match-date">6/14</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇯🇵</span><span class="team-name">일본</span></div>
+          <div class="match-teams"><span class="flag">🇯🇵</span><span class="team-name">일본</span><span class="vs">vs</span><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
           <div class="match-date">6/15</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
-          <div class="match-date">6/15</div>
+          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span><span class="vs">vs</span><span class="flag">🇯🇵</span><span class="team-name">일본</span></div>
+          <div class="match-date">6/16</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇩🇪</span><span class="team-name">독일</span><span class="vs">vs</span><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
+          <div class="match-date">6/17</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇭</span><span class="team-name">스위스</span><span class="vs">vs</span><span class="flag">🇩🇪</span><span class="team-name">독일</span></div>
+          <div class="match-date">6/21</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇯🇵</span><span class="team-name">일본</span><span class="vs">vs</span><span class="flag">🇫🇷</span><span class="team-name">프랑스</span></div>
+          <div class="match-date">6/21</div>
         </div>
       </div>
     </div>
@@ -236,20 +277,28 @@
       <div class="group-header">E조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇧🇷</span><span class="team-name">브라질</span></div>
+          <div class="match-teams"><span class="flag">🇧🇷</span><span class="team-name">브라질</span><span class="vs">vs</span><span class="flag">🇦🇺</span><span class="team-name">호주</span></div>
           <div class="match-date">6/15</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇦🇺</span><span class="team-name">호주</span></div>
-          <div class="match-date">6/15</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span></div>
+          <div class="match-teams"><span class="flag">🇨🇲</span><span class="team-name">카메룬</span><span class="vs">vs</span><span class="flag">🇦🇷</span><span class="team-name">아르헨티나</span></div>
           <div class="match-date">6/16</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇦🇷</span><span class="team-name">아르헨티나</span></div>
-          <div class="match-date">6/16</div>
+          <div class="match-teams"><span class="flag">🇧🇷</span><span class="team-name">브라질</span><span class="vs">vs</span><span class="flag">🇨🇲</span><span class="team-name">카메룬</span></div>
+          <div class="match-date">6/17</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇷</span><span class="team-name">아르헨티나</span><span class="vs">vs</span><span class="flag">🇦🇺</span><span class="team-name">호주</span></div>
+          <div class="match-date">6/18</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇺</span><span class="team-name">호주</span><span class="vs">vs</span><span class="flag">🇨🇲</span><span class="team-name">카메룬</span></div>
+          <div class="match-date">6/22</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇷</span><span class="team-name">아르헨티나</span><span class="vs">vs</span><span class="flag">🇧🇷</span><span class="team-name">브라질</span></div>
+          <div class="match-date">6/22</div>
         </div>
       </div>
     </div>
@@ -259,20 +308,28 @@
       <div class="group-header">F조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span><span class="vs">vs</span><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span></div>
           <div class="match-date">6/16</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇦🇶</span><span class="team-name">포르투갈</span></div>
+          <div class="match-teams"><span class="flag">🇲🇦</span><span class="team-name">모로코</span><span class="vs">vs</span><span class="flag">🇳🇦</span><span class="team-name">나미비아</span></div>
           <div class="match-date">6/17</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇲🇦</span><span class="team-name">모로코</span></div>
-          <div class="match-date">6/17</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇲</span><span class="team-name">나미비아</span></div>
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span><span class="vs">vs</span><span class="flag">🇳🇦</span><span class="team-name">나미비아</span></div>
           <div class="match-date">6/18</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span><span class="vs">vs</span><span class="flag">🇲🇦</span><span class="team-name">모로코</span></div>
+          <div class="match-date">6/19</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇦</span><span class="team-name">나미비아</span><span class="vs">vs</span><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span></div>
+          <div class="match-date">6/23</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇦</span><span class="team-name">모로코</span><span class="vs">vs</span><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-date">6/23</div>
         </div>
       </div>
     </div>
@@ -282,20 +339,28 @@
       <div class="group-header">G조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇴</span><span class="team-name">벨기에</span></div>
+          <div class="match-teams"><span class="flag">🇧🇪</span><span class="team-name">벨기에</span><span class="vs">vs</span><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span></div>
           <div class="match-date">6/18</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span></div>
-          <div class="match-date">6/18</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇷🇴</span><span class="team-name">루마니아</span></div>
+          <div class="match-teams"><span class="flag">🇷🇴</span><span class="team-name">루마니아</span><span class="vs">vs</span><span class="flag">🇬🇷</span><span class="team-name">그리스</span></div>
           <div class="match-date">6/19</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇬🇮</span><span class="team-name">그리스</span></div>
-          <div class="match-date">6/19</div>
+          <div class="match-teams"><span class="flag">🇧🇪</span><span class="team-name">벨기에</span><span class="vs">vs</span><span class="flag">🇷🇴</span><span class="team-name">루마니아</span></div>
+          <div class="match-date">6/20</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span><span class="vs">vs</span><span class="flag">🇬🇷</span><span class="team-name">그리스</span></div>
+          <div class="match-date">6/21</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇷</span><span class="team-name">그리스</span><span class="vs">vs</span><span class="flag">🇧🇪</span><span class="team-name">벨기에</span></div>
+          <div class="match-date">6/24</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span><span class="vs">vs</span><span class="flag">🇷🇴</span><span class="team-name">루마니아</span></div>
+          <div class="match-date">6/24</div>
         </div>
       </div>
     </div>
@@ -305,20 +370,28 @@
       <div class="group-header">H조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇸🇪</span><span class="team-name">스웨덴</span></div>
+          <div class="match-teams"><span class="flag">🇸🇪</span><span class="team-name">스웨덴</span><span class="vs">vs</span><span class="flag">🇮🇱</span><span class="team-name">이스라엘</span></div>
           <div class="match-date">6/19</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇮🇳</span><span class="team-name">이스라엘</span></div>
+          <div class="match-teams"><span class="flag">🇧🇬</span><span class="team-name">불가리아</span><span class="vs">vs</span><span class="flag">🇦🇿</span><span class="team-name">아제르바이잔</span></div>
           <div class="match-date">6/20</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇧🇬</span><span class="team-name">불가리아</span></div>
-          <div class="match-date">6/20</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
+          <div class="match-teams"><span class="flag">🇸🇪</span><span class="team-name">스웨덴</span><span class="vs">vs</span><span class="flag">🇧🇬</span><span class="team-name">불가리아</span></div>
           <div class="match-date">6/21</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇮🇱</span><span class="team-name">이스라엘</span><span class="vs">vs</span><span class="flag">🇦🇿</span><span class="team-name">아제르바이잔</span></div>
+          <div class="match-date">6/22</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇿</span><span class="team-name">아제르바이잔</span><span class="vs">vs</span><span class="flag">🇸🇪</span><span class="team-name">스웨덴</span></div>
+          <div class="match-date">6/25</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇧🇬</span><span class="team-name">불가리아</span><span class="vs">vs</span><span class="flag">🇮🇱</span><span class="team-name">이스라엘</span></div>
+          <div class="match-date">6/25</div>
         </div>
       </div>
     </div>
@@ -328,20 +401,28 @@
       <div class="group-header">I조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇺🇸</span><span class="team-name">미국</span></div>
+          <div class="match-teams"><span class="flag">🇺🇸</span><span class="team-name">미국</span><span class="vs">vs</span><span class="flag">🇪🇬</span><span class="team-name">이집트</span></div>
           <div class="match-date">6/21</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇪🇬</span><span class="team-name">이집트</span></div>
-          <div class="match-date">6/21</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇺🇾</span><span class="team-name">우루과이</span></div>
+          <div class="match-teams"><span class="flag">🇺🇾</span><span class="team-name">우루과이</span><span class="vs">vs</span><span class="flag">🇵🇦</span><span class="team-name">파나마</span></div>
           <div class="match-date">6/22</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇵🇦</span><span class="team-name">파나마</span></div>
-          <div class="match-date">6/22</div>
+          <div class="match-teams"><span class="flag">🇺🇸</span><span class="team-name">미국</span><span class="vs">vs</span><span class="flag">🇺🇾</span><span class="team-name">우루과이</span></div>
+          <div class="match-date">6/23</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇬</span><span class="team-name">이집트</span><span class="vs">vs</span><span class="flag">🇵🇦</span><span class="team-name">파나마</span></div>
+          <div class="match-date">6/24</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇦</span><span class="team-name">파나마</span><span class="vs">vs</span><span class="flag">🇪🇬</span><span class="team-name">이집트</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇺🇾</span><span class="team-name">우루과이</span><span class="vs">vs</span><span class="flag">🇺🇸</span><span class="team-name">미국</span></div>
+          <div class="match-date">6/26</div>
         </div>
       </div>
     </div>
@@ -351,20 +432,28 @@
       <div class="group-header">J조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span></div>
+          <div class="match-teams"><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span><span class="vs">vs</span><span class="flag">🇧🇪</span><span class="team-name">벨기에</span></div>
           <div class="match-date">6/22</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇵</span><span class="team-name">벨기에</span></div>
+          <div class="match-teams"><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span><span class="vs">vs</span><span class="flag">🇬🇪</span><span class="team-name">조지아</span></div>
           <div class="match-date">6/23</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇷🇺</span><span class="team-name">슬로바키아</span></div>
-          <div class="match-date">6/23</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇲🇴</span><span class="team-name">조지아</span></div>
+          <div class="match-teams"><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span><span class="vs">vs</span><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span></div>
           <div class="match-date">6/24</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇧🇪</span><span class="team-name">벨기에</span><span class="vs">vs</span><span class="flag">🇬🇪</span><span class="team-name">조지아</span></div>
+          <div class="match-date">6/25</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇪</span><span class="team-name">조지아</span><span class="vs">vs</span><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇧🇪</span><span class="team-name">벨기에</span><span class="vs">vs</span><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span></div>
+          <div class="match-date">6/26</div>
         </div>
       </div>
     </div>
@@ -374,20 +463,28 @@
       <div class="group-header">K조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span><span class="vs">vs</span><span class="flag">🇳🇿</span><span class="team-name">뉴질랜드</span></div>
           <div class="match-date">6/24</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇿</span><span class="team-name">뉴질랜드</span></div>
-          <div class="match-date">6/24</div>
-        </div>
-        <div class="match">
-          <div class="match-teams"><span class="flag">🇨🇱</span><span class="team-name">칠레</span></div>
+          <div class="match-teams"><span class="flag">🇨🇱</span><span class="team-name">칠레</span><span class="vs">vs</span><span class="flag">🇺🇿</span><span class="team-name">우즈베키스탄</span></div>
           <div class="match-date">6/25</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇱</span><span class="team-name">우즈베키스탄</span></div>
-          <div class="match-date">6/25</div>
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span><span class="vs">vs</span><span class="flag">🇨🇱</span><span class="team-name">칠레</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇿</span><span class="team-name">뉴질랜드</span><span class="vs">vs</span><span class="flag">🇺🇿</span><span class="team-name">우즈베키스탄</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇺🇿</span><span class="team-name">우즈베키스탄</span><span class="vs">vs</span><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
+          <div class="match-date">7/1</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇱</span><span class="team-name">칠레</span><span class="vs">vs</span><span class="flag">🇳🇿</span><span class="team-name">뉴질랜드</span></div>
+          <div class="match-date">7/1</div>
         </div>
       </div>
     </div>
@@ -397,20 +494,28 @@
       <div class="group-header">L조</div>
       <div class="group-matches">
         <div class="match">
-          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span><span class="vs">vs</span><span class="flag">🇮🇷</span><span class="team-name">이란</span></div>
           <div class="match-date">6/25</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇬🇱</span><span class="team-name">이란</span></div>
+          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span><span class="vs">vs</span><span class="flag">🇪🇨</span><span class="team-name">에콰도르</span></div>
           <div class="match-date">6/26</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span></div>
-          <div class="match-date">6/26</div>
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span><span class="vs">vs</span><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span></div>
+          <div class="match-date">6/27</div>
         </div>
         <div class="match">
-          <div class="match-teams"><span class="flag">🇪🇬</span><span class="team-name">에콰도르</span></div>
-          <div class="match-date">6/26</div>
+          <div class="match-teams"><span class="flag">🇮🇷</span><span class="team-name">이란</span><span class="vs">vs</span><span class="flag">🇪🇨</span><span class="team-name">에콰도르</span></div>
+          <div class="match-date">6/28</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇨</span><span class="team-name">에콰도르</span><span class="vs">vs</span><span class="flag">🇮🇷</span><span class="team-name">이란</span></div>
+          <div class="match-date">7/1</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span><span class="vs">vs</span><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-date">7/1</div>
         </div>
       </div>
     </div>
@@ -418,7 +523,7 @@
 
   <div class="legend">
     <strong>📌 참고</strong><br>
-    표시된 날짜는 각 팀의 첫 경기 예정 날짜입니다. 정확한 매치업과 시간은 FIFA.com에서 확인하세요.
+    조별리그의 모든 경기 일정을 표시했습니다. 정확한 매치업 시간과 중계 정보는 FIFA.com에서 확인하세요.
   </div>
 
   <div class="footer">
