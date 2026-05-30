@@ -280,6 +280,36 @@
       border-top: 1px solid var(--card-border); margin-top: 40px;
     }
 
+    /* ── ODDS ── */
+    .odds-box {
+      margin-top: 14px; padding: 12px 14px;
+      background: rgba(255,215,0,0.04);
+      border: 1px solid rgba(255,215,0,0.15);
+      border-radius: 12px;
+    }
+    .odds-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.8px;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 10px; display: flex; align-items: center; gap: 6px;
+    }
+    .odds-row {
+      display: flex; gap: 8px;
+    }
+    .odds-item {
+      flex: 1; text-align: center;
+      padding: 8px 6px; border-radius: 9px;
+      border: 1px solid rgba(255,255,255,0.07);
+    }
+    .odds-item .odds-team { font-size: 10px; color: var(--subtext); margin-bottom: 4px; }
+    .odds-item .odds-num  { font-size: 20px; font-weight: 900; line-height: 1; }
+    .odds-item.kor  { background: rgba(200,16,46,0.1); }
+    .odds-item.kor .odds-num  { color: #ff6680; }
+    .odds-item.draw { background: rgba(255,255,255,0.04); }
+    .odds-item.draw .odds-num { color: #aaa; }
+    .odds-item.opp  { background: rgba(85,153,255,0.08); }
+    .odds-item.opp .odds-num  { color: #5599ff; }
+    .odds-source { font-size: 10px; color: var(--subtext); margin-top: 8px; text-align: right; }
+
     /* Twemoji images */
     img.emoji {
       height: 1.2em;
@@ -462,6 +492,25 @@
       <span class="pill jtbc">JTBC</span>
       <span class="pill kbsn">JTBC NOW</span>
     </div>
+    <!-- ODDS: Korea vs Czech Republic -->
+    <div class="odds-box">
+      <div class="odds-label">💰 스포츠 배당률 (소수점 배당)</div>
+      <div class="odds-row">
+        <div class="odds-item kor">
+          <div class="odds-team">🇰🇷 한국 승</div>
+          <div class="odds-num">2.62</div>
+        </div>
+        <div class="odds-item draw">
+          <div class="odds-team">무승부</div>
+          <div class="odds-num">3.10</div>
+        </div>
+        <div class="odds-item opp">
+          <div class="odds-team">🇨🇿 체코 승</div>
+          <div class="odds-num">2.75</div>
+        </div>
+      </div>
+      <div class="odds-source">📌 출처: bet365 · Oddschecker 기준 (변동 가능)</div>
+    </div>
     <!-- H2H: Korea vs Czech Republic -->
     <div class="h2h-box">
       <div class="h2h-label">🆚 한국 vs 체코 역대 전적 <span style="font-size:10px;color:var(--subtext);font-weight:400;margin-left:4px;">(1993년 체코 독립 후 전체 — 3경기)</span></div>
@@ -525,6 +574,25 @@
       <span class="pill kbs">KBS 1</span>
       <span class="pill jtbc">JTBC</span>
       <span class="pill kbsn">JTBC NOW</span>
+    </div>
+    <!-- ODDS: Korea vs Mexico -->
+    <div class="odds-box">
+      <div class="odds-label">💰 스포츠 배당률 (소수점 배당)</div>
+      <div class="odds-row">
+        <div class="odds-item kor">
+          <div class="odds-team">🇰🇷 한국 승</div>
+          <div class="odds-num">4.50</div>
+        </div>
+        <div class="odds-item draw">
+          <div class="odds-team">무승부</div>
+          <div class="odds-num">3.20</div>
+        </div>
+        <div class="odds-item opp">
+          <div class="odds-team">🇲🇽 멕시코 승</div>
+          <div class="odds-num">1.80</div>
+        </div>
+      </div>
+      <div class="odds-source">📌 출처: ESPN BET · Oddspedia 기준 (변동 가능)</div>
     </div>
     <!-- H2H: Korea vs Mexico -->
     <div class="h2h-box">
@@ -604,6 +672,25 @@
       <span class="pill kbs">KBS 1</span>
       <span class="pill jtbc">JTBC</span>
       <span class="pill kbsn">JTBC NOW</span>
+    </div>
+    <!-- ODDS: Korea vs South Africa -->
+    <div class="odds-box">
+      <div class="odds-label">💰 스포츠 배당률 (소수점 배당)</div>
+      <div class="odds-row">
+        <div class="odds-item kor">
+          <div class="odds-team">🇰🇷 한국 승</div>
+          <div class="odds-num">2.10</div>
+        </div>
+        <div class="odds-item draw">
+          <div class="odds-team">무승부</div>
+          <div class="odds-num">3.25</div>
+        </div>
+        <div class="odds-item opp">
+          <div class="odds-team">🇿🇦 남아공 승</div>
+          <div class="odds-num">3.60</div>
+        </div>
+      </div>
+      <div class="odds-source">📌 출처: Betfair · Oddschecker 기준 (변동 가능)</div>
     </div>
     <!-- H2H: Korea vs South Africa -->
     <div class="h2h-box">
