@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌍 2026 FIFA 월드컵 전체 조별리그</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+
+    :root {
+      --red: #C8102E;
+      --blue: #003087;
+      --gold: #FFD700;
+      --bg: #0a0a0f;
+      --card-bg: #12121a;
+      --card-border: #1e1e2e;
+      --text: #f0f0f5;
+      --subtext: #8888aa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 900;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--subtext);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+
+    .groups-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-bottom: 40px;
+    }
+
+    .group-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .group-header {
+      background: linear-gradient(90deg, rgba(200,16,46,0.2), rgba(0,48,135,0.15));
+      padding: 16px 20px;
+      font-weight: 700;
+      font-size: 18px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .group-matches {
+      padding: 16px 20px;
+    }
+
+    .match {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+    }
+
+    .match:last-child { border-bottom: none; }
+
+    .match-teams {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .flag { font-size: 18px; line-height: 1; }
+
+    .team-name { flex: 1; }
+
+    .match-date {
+      text-align: right;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 12px;
+    }
+
+    .legend {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      color: var(--subtext);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .legend strong { color: var(--text); }
+
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      font-size: 12px;
+      color: var(--subtext);
+    }
+
+    .footer a { color: var(--gold); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>🌍 2026 FIFA 월드컵 조별리그</h1>
+  <p class="subtitle">전체 12개 조 · 조별리그: 6월 11일(목) ~ 6월 25일(수)</p>
+
+  <div class="groups-grid">
+    <!-- Group A -->
+    <div class="group-card">
+      <div class="group-header">A조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇽</span><span class="team-name">멕시코</span></div>
+          <div class="match-date">6/11</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇰🇷</span><span class="team-name">대한민국</span></div>
+          <div class="match-date">6/12</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇿</span><span class="team-name">체코</span></div>
+          <div class="match-date">6/12</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇿🇦</span><span class="team-name">남아공</span></div>
+          <div class="match-date">6/11</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group B -->
+    <div class="group-card">
+      <div class="group-header">B조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇪</span><span class="team-name">네덜란드</span></div>
+          <div class="match-date">6/12</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇦</span><span class="team-name">사우디아라비아</span></div>
+          <div class="match-date">6/12</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">니제르</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group C -->
+    <div class="group-card">
+      <div class="group-header">C조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇸</span><span class="team-name">스페인</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇭🇷</span><span class="team-name">크로아티아</span></div>
+          <div class="match-date">6/14</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇮🇹</span><span class="team-name">이탈리아</span></div>
+          <div class="match-date">6/13</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇱</span><span class="team-name">알바니아</span></div>
+          <div class="match-date">6/14</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group D -->
+    <div class="group-card">
+      <div class="group-header">D조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span></div>
+          <div class="match-date">6/14</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇩🇪</span><span class="team-name">독일</span></div>
+          <div class="match-date">6/14</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇯🇵</span><span class="team-name">일본</span></div>
+          <div class="match-date">6/15</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
+          <div class="match-date">6/15</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group E -->
+    <div class="group-card">
+      <div class="group-header">E조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇧🇷</span><span class="team-name">브라질</span></div>
+          <div class="match-date">6/15</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇺</span><span class="team-name">호주</span></div>
+          <div class="match-date">6/15</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇫🇷</span><span class="team-name">프랑스</span></div>
+          <div class="match-date">6/16</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇷</span><span class="team-name">아르헨티나</span></div>
+          <div class="match-date">6/16</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group F -->
+    <div class="group-card">
+      <div class="group-header">F조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-date">6/16</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇦🇶</span><span class="team-name">포르투갈</span></div>
+          <div class="match-date">6/17</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇦</span><span class="team-name">모로코</span></div>
+          <div class="match-date">6/17</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇲</span><span class="team-name">나미비아</span></div>
+          <div class="match-date">6/18</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group G -->
+    <div class="group-card">
+      <div class="group-header">G조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇴</span><span class="team-name">벨기에</span></div>
+          <div class="match-date">6/18</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇰</span><span class="team-name">슬로바키아</span></div>
+          <div class="match-date">6/18</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇷🇴</span><span class="team-name">루마니아</span></div>
+          <div class="match-date">6/19</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇮</span><span class="team-name">그리스</span></div>
+          <div class="match-date">6/19</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group H -->
+    <div class="group-card">
+      <div class="group-header">H조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇸🇪</span><span class="team-name">스웨덴</span></div>
+          <div class="match-date">6/19</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇮🇳</span><span class="team-name">이스라엘</span></div>
+          <div class="match-date">6/20</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇧🇬</span><span class="team-name">불가리아</span></div>
+          <div class="match-date">6/20</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇭</span><span class="team-name">스위스</span></div>
+          <div class="match-date">6/21</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group I -->
+    <div class="group-card">
+      <div class="group-header">I조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇺🇸</span><span class="team-name">미국</span></div>
+          <div class="match-date">6/21</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇬</span><span class="team-name">이집트</span></div>
+          <div class="match-date">6/21</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇺🇾</span><span class="team-name">우루과이</span></div>
+          <div class="match-date">6/22</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇦</span><span class="team-name">파나마</span></div>
+          <div class="match-date">6/22</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group J -->
+    <div class="group-card">
+      <div class="group-header">J조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇹</span><span class="team-name">포르투갈</span></div>
+          <div class="match-date">6/22</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇵</span><span class="team-name">벨기에</span></div>
+          <div class="match-date">6/23</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇷🇺</span><span class="team-name">슬로바키아</span></div>
+          <div class="match-date">6/23</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇲🇴</span><span class="team-name">조지아</span></div>
+          <div class="match-date">6/24</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group K -->
+    <div class="group-card">
+      <div class="group-header">K조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇵🇱</span><span class="team-name">폴란드</span></div>
+          <div class="match-date">6/24</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇿</span><span class="team-name">뉴질랜드</span></div>
+          <div class="match-date">6/24</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇨🇱</span><span class="team-name">칠레</span></div>
+          <div class="match-date">6/25</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇱</span><span class="team-name">우즈베키스탄</span></div>
+          <div class="match-date">6/25</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Group L -->
+    <div class="group-card">
+      <div class="group-header">L조</div>
+      <div class="group-matches">
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇧</span><span class="team-name">잉글랜드</span></div>
+          <div class="match-date">6/25</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇬🇱</span><span class="team-name">이란</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇳🇬</span><span class="team-name">나이지리아</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+        <div class="match">
+          <div class="match-teams"><span class="flag">🇪🇬</span><span class="team-name">에콰도르</span></div>
+          <div class="match-date">6/26</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="legend">
+    <strong>📌 참고</strong><br>
+    표시된 날짜는 각 팀의 첫 경기 예정 날짜입니다. 정확한 매치업과 시간은 FIFA.com에서 확인하세요.
+  </div>
+
+  <div class="footer">
+    <p>🌍 2026 FIFA 월드컵 조별리그 일정 · 6월 11일(목) ~ 6월 25일(수)</p>
+    <p style="margin-top: 10px;">
+      <a href="korea-worldcup-2026.html">← 대한민국 상세 일정으로 돌아가기</a>
+    </p>
+    <p style="margin-top: 16px; font-size: 11px; color: #444;">
+      Made by Justin Song with Claude Code
+    </p>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    twemoji.parse(document.body, { folder: 'svg', ext: '.svg' });
+  });
+</script>
+
+</body>
+</html>
