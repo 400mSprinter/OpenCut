@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🇰🇷 대한민국 2026 FIFA 월드컵 일정</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;600;700;900&display=swap');
+
+    :root {
+      --red: #C8102E;
+      --blue: #003087;
+      --gold: #FFD700;
+      --bg: #0a0a0f;
+      --card-bg: #12121a;
+      --card-border: #1e1e2e;
+      --text: #f0f0f5;
+      --subtext: #8888aa;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 20px 50px;
+      text-align: center;
+      background: linear-gradient(160deg, #0a0a0f 0%, #1a0810 40%, #0a0818 100%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% -10%, rgba(200,16,46,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 110%, rgba(0,48,135,0.28) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-flag {
+      font-size: 72px;
+      display: block;
+      margin-bottom: 16px;
+      filter: drop-shadow(0 0 24px rgba(200,16,46,0.6));
+    }
+    .hero h1 {
+      font-size: clamp(24px, 5vw, 46px);
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero h1 .red  { color: var(--red); }
+    .hero h1 .blue { color: #5599ff; }
+    .hero-sub { font-size: 15px; color: var(--subtext); margin-top: 8px; }
+    .badge-row {
+      display: flex; justify-content: center;
+      gap: 10px; flex-wrap: wrap; margin-top: 22px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 99px; padding: 6px 14px;
+      font-size: 13px; font-weight: 600;
+    }
+    .badge.red  { border-color: rgba(200,16,46,0.5); color: #ff6680; }
+    .badge.blue { border-color: rgba(85,153,255,0.4); color: #5599ff; }
+    .badge.gold { border-color: rgba(255,215,0,0.4); color: var(--gold); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 16px; }
+
+    .section-title {
+      font-size: 20px; font-weight: 700;
+      margin: 44px 0 18px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, var(--card-border), transparent);
+    }
+
+    /* ── MATCH CARDS ── */
+    .match-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px; padding: 22px 24px;
+      margin-bottom: 16px; position: relative;
+      overflow: hidden;
+      transition: transform 0.18s, border-color 0.18s;
+    }
+    .match-card:hover { transform: translateY(-2px); border-color: rgba(200,16,46,0.4); }
+    .match-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 4px;
+      border-radius: 4px 0 0 4px;
+    }
+    .match-card.friendly::before  { background: linear-gradient(180deg,#888,#444); }
+    .match-card.group::before     { background: linear-gradient(180deg,var(--red),var(--blue)); }
+    .match-card.upcoming::before  { background: linear-gradient(180deg,#FFD700,#ff9900); }
+
+    .match-top {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; flex-wrap: wrap;
+      gap: 10px; margin-bottom: 14px;
+    }
+    .match-type-tag {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 99px;
+    }
+    .tag-friendly { background: rgba(136,136,136,0.15); color: #aaa; border: 1px solid #333; }
+    .tag-group    { background: rgba(200,16,46,0.15); color: #ff6680; border: 1px solid rgba(200,16,46,0.3); }
+    .tag-upcoming { background: rgba(255,215,0,0.12); color: var(--gold); border: 1px solid rgba(255,215,0,0.3); }
+
+    .match-datetime { font-size: 13px; color: var(--subtext); text-align: right; }
+    .match-datetime .date { font-weight: 700; color: var(--text); font-size: 14px; }
+
+    .teams {
+      display: flex; align-items: center;
+      justify-content: center; gap: 16px; margin: 12px 0;
+    }
+    .team {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 6px;
+      flex: 1; max-width: 160px;
+    }
+    .team-flag { font-size: 38px; line-height: 1; }
+    .team-name { font-size: 15px; font-weight: 700; text-align: center; }
+    .team-name.korea { color: #ff6680; }
+    .vs { font-size: 22px; font-weight: 900; color: var(--subtext); letter-spacing: 2px; flex-shrink: 0; }
+
+    .match-meta {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 14px; padding-top: 14px;
+      border-top: 1px solid var(--card-border);
+    }
+    .meta-item {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--subtext);
+      background: rgba(255,255,255,0.03);
+      padding: 5px 10px; border-radius: 8px;
+      border: 1px solid var(--card-border);
+    }
+    .meta-item .icon { font-size: 14px; }
+    .meta-item strong { color: var(--text); font-weight: 600; }
+
+    .broadcast-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
+    .broadcast-label { font-size: 12px; color: var(--subtext); }
+    .pill {
+      font-size: 12px; font-weight: 700;
+      padding: 4px 10px; border-radius: 99px; letter-spacing: 0.3px;
+    }
+    .pill.kbs  { background: rgba(0,120,255,0.15); color: #66aaff; border: 1px solid rgba(0,120,255,0.3); }
+    .pill.jtbc { background: rgba(200,16,46,0.12); color: #ff6680; border: 1px solid rgba(200,16,46,0.25); }
+    .pill.kbsn { background: rgba(0,160,255,0.12); color: #55bbff; border: 1px solid rgba(0,160,255,0.3); }
+
+    /* Tomorrow highlight */
+    .tomorrow-glow { box-shadow: 0 0 32px rgba(255,215,0,0.14); border-color: rgba(255,215,0,0.28) !important; }
+    .tomorrow-banner {
+      background: linear-gradient(90deg, rgba(255,215,0,0.12), rgba(255,153,0,0.07));
+      border: 1px solid rgba(255,215,0,0.25);
+      border-radius: 10px; padding: 8px 14px;
+      font-size: 13px; font-weight: 700; color: var(--gold);
+      margin-bottom: 14px; display: flex; align-items: center; gap: 8px;
+    }
+
+    /* ── GROUP TABLE ── */
+    .group-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px; overflow: hidden; margin-bottom: 20px;
+    }
+    .group-header {
+      background: linear-gradient(90deg, rgba(200,16,46,0.2), rgba(0,48,135,0.15));
+      padding: 14px 20px; font-weight: 700; font-size: 16px;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .group-table { width: 100%; border-collapse: collapse; }
+    .group-table th {
+      padding: 10px 16px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase;
+      color: var(--subtext); text-align: left;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .group-table th:not(:first-child) { text-align: center; }
+    .group-table td {
+      padding: 12px 16px; font-size: 14px;
+      border-bottom: 1px solid rgba(30,30,46,0.5);
+    }
+    .group-table td:not(:first-child) { text-align: center; color: var(--subtext); }
+    .group-table tr:last-child td { border-bottom: none; }
+    .group-table tr.korea-row { background: rgba(200,16,46,0.06); }
+    .group-table tr.korea-row td:first-child { font-weight: 700; color: #ff6680; }
+
+    /* ── CARDS GRID ── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 14px; margin-bottom: 20px;
+    }
+    .card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 14px; padding: 18px 20px;
+      transition: transform 0.18s, border-color 0.18s;
+    }
+    .card:hover { transform: translateY(-2px); border-color: rgba(200,16,46,0.3); }
+    .card-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+    .card-title {
+      font-size: 13px; font-weight: 700; color: var(--subtext);
+      text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;
+    }
+    .card-text { font-size: 14px; line-height: 1.6; color: var(--text); }
+    .card-text strong { color: var(--gold); }
+
+    /* ── PLAYERS ── */
+    .players-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 12px; margin-bottom: 20px;
+    }
+    .player-card {
+      background: var(--card-bg); border: 1px solid var(--card-border);
+      border-radius: 14px; padding: 16px 18px; text-align: center;
+    }
+    .player-num { font-size: 28px; font-weight: 900; color: var(--red); line-height: 1; margin-bottom: 4px; }
+    .player-name { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+    .player-club { font-size: 12px; color: var(--subtext); margin-bottom: 6px; }
+    .player-stat { font-size: 12px; color: var(--gold); font-weight: 600; }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center; padding: 30px 16px;
+      color: var(--subtext); font-size: 12px;
+      border-top: 1px solid var(--card-border); margin-top: 40px;
+    }
+
+    @media (max-width: 600px) {
+      .teams { gap: 10px; }
+      .team-flag { font-size: 30px; }
+      .team-name { font-size: 13px; }
+      .match-top { flex-direction: column; }
+      .match-datetime { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ======== HERO ======== -->
+<div class="hero">
+  <span class="hero-flag">🇰🇷</span>
+  <h1><span class="red">대한민국</span> <span class="blue">2026 FIFA 월드컵</span></h1>
+  <p style="font-size:17px;font-weight:700;margin-top:8px;color:#ccc;">Korea Republic — 2026 FIFA World Cup</p>
+  <p class="hero-sub">📅 2026년 6월 11일 ~ 7월 19일 &nbsp;|&nbsp; 미국 · 캐나다 · 멕시코 공동개최</p>
+  <div class="badge-row">
+    <span class="badge red">🔴 A조 배정</span>
+    <span class="badge blue">🌎 전 경기 멕시코 개최</span>
+    <span class="badge">⚽ 11회 연속 본선 진출</span>
+    <span class="badge gold">🏆 2002 4강 전설</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- ======== 평가전 ======== -->
+  <h2 class="section-title">⚽ 평가전 (Friendly Matches)</h2>
+
+  <!-- D-1 트리니다드 토바고 -->
+  <div class="match-card friendly upcoming tomorrow-glow">
+    <div class="tomorrow-banner">🌟 내일 경기! &nbsp;—&nbsp; D-1</div>
+    <div class="match-top">
+      <span class="match-type-tag tag-upcoming">내일 · 평가전</span>
+      <div class="match-datetime">
+        <div class="date">2026년 5월 31일 (일)</div>
+        <div>오전 10:00 KST</div>
+      </div>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="team-flag">🇰🇷</span>
+        <span class="team-name korea">대한민국</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="team">
+        <span class="team-flag">🇹🇹</span>
+        <span class="team-name">트리니다드 토바고</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <div class="meta-item"><span class="icon">📍</span><span>도시: <strong>프로보, 유타주, 미국</strong></span></div>
+      <div class="meta-item"><span class="icon">🏟️</span><span>경기장: <strong>BYU South Field (브리검 영 대학)</strong></span></div>
+      <div class="meta-item"><span class="icon">⛰️</span><span>고도 적응 훈련캠프 (멕시코 경기 대비)</span></div>
+    </div>
+    <div class="broadcast-row">
+      <span class="broadcast-label">📺 중계:</span>
+      <span class="pill kbs">KBS</span>
+      <span class="pill jtbc">JTBC</span>
+      <span class="pill kbsn">JTBC NOW</span>
+    </div>
+  </div>
+
+  <!-- 엘살바도르 평가전 -->
+  <div class="match-card friendly">
+    <div class="match-top">
+      <span class="match-type-tag tag-friendly">평가전</span>
+      <div class="match-datetime">
+        <div class="date">2026년 6월 초 (날짜 확정 중)</div>
+        <div>KST 시간 미정</div>
+      </div>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="team-flag">🇰🇷</span>
+        <span class="team-name korea">대한민국</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="team">
+        <span class="team-flag">🇸🇻</span>
+        <span class="team-name">엘살바도르</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <div class="meta-item"><span class="icon">📍</span><span>위치: <strong>미국 내 (확정 대기)</strong></span></div>
+      <div class="meta-item"><span class="icon">ℹ️</span><span>북중미 기후·고도 최종 적응 훈련</span></div>
+    </div>
+    <div class="broadcast-row">
+      <span class="broadcast-label">📺 중계:</span>
+      <span class="pill kbs">KBS</span>
+      <span class="pill jtbc">JTBC</span>
+    </div>
+  </div>
+
+  <!-- ======== 조 편성 ======== -->
+  <h2 class="section-title">📊 A조 조 편성</h2>
+  <div class="group-box">
+    <div class="group-header">🏆 Group A — 2026 FIFA World Cup</div>
+    <table class="group-table">
+      <thead>
+        <tr>
+          <th>국가</th>
+          <th>FIFA 랭킹</th>
+          <th>최근 월드컵</th>
+          <th>특징</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="korea-row">
+          <td>🇰🇷 대한민국</td>
+          <td>23위</td>
+          <td>2022 16강</td>
+          <td>손흥민 주장 · 4번째 WC</td>
+        </tr>
+        <tr>
+          <td>🇲🇽 멕시코</td>
+          <td>15위</td>
+          <td>2022 조별리그</td>
+          <td>공동개최국 · 홈 어드밴티지</td>
+        </tr>
+        <tr>
+          <td>🇨🇿 체코 (체코슬로바키아)</td>
+          <td>40위</td>
+          <td>2022 불참</td>
+          <td>유럽 전통 강호</td>
+        </tr>
+        <tr>
+          <td>🇿🇦 남아프리카공화국</td>
+          <td>55위</td>
+          <td>2010 개최국</td>
+          <td>아프리카 대표</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ======== 본선 경기 ======== -->
+  <h2 class="section-title">🏆 본선 조별리그 일정 (A조)</h2>
+
+  <!-- 1차전: 체코 -->
+  <div class="match-card group">
+    <div class="match-top">
+      <span class="match-type-tag tag-group">A조 1차전</span>
+      <div class="match-datetime">
+        <div class="date">2026년 6월 12일 (금)</div>
+        <div>오전 11:00 KST</div>
+      </div>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="team-flag">🇰🇷</span>
+        <span class="team-name korea">대한민국</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="team">
+        <span class="team-flag">🇨🇿</span>
+        <span class="team-name">체코</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <div class="meta-item"><span class="icon">📍</span><span>도시: <strong>과달라하라 (사포판), 할리스코주, 멕시코</strong></span></div>
+      <div class="meta-item"><span class="icon">🏟️</span><span>경기장: <strong>Estadio Guadalajara (구 Estadio Akron)</strong></span></div>
+      <div class="meta-item"><span class="icon">👥</span><span>수용인원: <strong>49,813석</strong></span></div>
+      <div class="meta-item"><span class="icon">⛰️</span><span>해발 고도: <strong>1,566m</strong></span></div>
+    </div>
+    <div class="broadcast-row">
+      <span class="broadcast-label">📺 중계:</span>
+      <span class="pill kbs">KBS 1</span>
+      <span class="pill jtbc">JTBC</span>
+      <span class="pill kbsn">JTBC NOW</span>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--subtext);">
+      💡 <em>경기 시간(현지): 6월 11일 저녁 10:00 PM CDT. 과달라하라는 Liga MX 명문 '치바스(Chivas)'의 홈 도시! 멕시코 팬들의 열기 속 첫 경기.</em>
+    </div>
+  </div>
+
+  <!-- 2차전: 멕시코 -->
+  <div class="match-card group">
+    <div class="match-top">
+      <span class="match-type-tag tag-group">A조 2차전</span>
+      <div class="match-datetime">
+        <div class="date">2026년 6월 19일 (금)</div>
+        <div>오전 10:00 KST</div>
+      </div>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="team-flag">🇰🇷</span>
+        <span class="team-name korea">대한민국</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="team">
+        <span class="team-flag">🇲🇽</span>
+        <span class="team-name">멕시코 (개최국)</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <div class="meta-item"><span class="icon">📍</span><span>도시: <strong>과달라하라 (사포판), 할리스코주, 멕시코</strong></span></div>
+      <div class="meta-item"><span class="icon">🏟️</span><span>경기장: <strong>Estadio Guadalajara (구 Estadio Akron)</strong></span></div>
+      <div class="meta-item"><span class="icon">👥</span><span>수용인원: <strong>49,813석</strong></span></div>
+    </div>
+    <div class="broadcast-row">
+      <span class="broadcast-label">📺 중계:</span>
+      <span class="pill kbs">KBS 1</span>
+      <span class="pill jtbc">JTBC</span>
+      <span class="pill kbsn">JTBC NOW</span>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--subtext);">
+      💡 <em>개최국 멕시코와의 빅매치! 과달라하라 홈경기라 멕시코 팬 8만 명의 함성은 기본. 2026 최고 흥행 카드 중 하나.</em>
+    </div>
+  </div>
+
+  <!-- 3차전: 남아공 -->
+  <div class="match-card group">
+    <div class="match-top">
+      <span class="match-type-tag tag-group">A조 3차전</span>
+      <div class="match-datetime">
+        <div class="date">2026년 6월 25일 (목)</div>
+        <div>오전 10:00 KST</div>
+      </div>
+    </div>
+    <div class="teams">
+      <div class="team">
+        <span class="team-flag">🇰🇷</span>
+        <span class="team-name korea">대한민국</span>
+      </div>
+      <span class="vs">VS</span>
+      <div class="team">
+        <span class="team-flag">🇿🇦</span>
+        <span class="team-name">남아프리카공화국</span>
+      </div>
+    </div>
+    <div class="match-meta">
+      <div class="meta-item"><span class="icon">📍</span><span>도시: <strong>몬테레이, 누에보레온주, 멕시코</strong></span></div>
+      <div class="meta-item"><span class="icon">🏟️</span><span>경기장: <strong>Estadio Monterrey (구 Estadio BBVA)</strong></span></div>
+      <div class="meta-item"><span class="icon">👥</span><span>수용인원: <strong>53,000석+</strong></span></div>
+    </div>
+    <div class="broadcast-row">
+      <span class="broadcast-label">📺 중계:</span>
+      <span class="pill kbs">KBS 1</span>
+      <span class="pill jtbc">JTBC</span>
+      <span class="pill kbsn">JTBC NOW</span>
+    </div>
+    <div style="margin-top:12px;font-size:12px;color:var(--subtext);">
+      💡 <em>몬테레이 Estadio BBVA(스틸 자이언트)는 2015년 개장, 중남미 최첨단 경기장. 북쪽 관중석에서 '세로 데 라 시야' 산(1,820m)이 배경으로 보이는 독보적 뷰!</em>
+    </div>
+  </div>
+
+  <!-- ======== 중계 채널 ======== -->
+  <h2 class="section-title">📺 국내 중계 채널</h2>
+
+  <div style="background:rgba(200,16,46,0.08);border:1px solid rgba(200,16,46,0.2);border-radius:12px;padding:14px 18px;margin-bottom:18px;font-size:13px;">
+    ⚠️ <strong>중요!</strong> 이번 2026 월드컵은 MBC·SBS의 협상이 결렬되어 <strong>KBS와 JTBC 두 채널만</strong> 중계권을 확보했습니다. (2026년 4월 기준)
+  </div>
+
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">📡</span>
+      <div class="card-title">KBS 1 · KBS 2</div>
+      <div class="card-text"><strong>지상파 무료 중계.</strong> 한국 조별리그 3경기 + 토너먼트 전 경기 방송. TV 안테나로 무료 시청 가능.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎬</span>
+      <div class="card-title">JTBC (케이블/위성)</div>
+      <div class="card-text"><strong>전 104경기 생중계.</strong> JTBC는 이번 월드컵의 핵심 중계 채널. 심층 분석, 하이라이트 제공.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📱</span>
+      <div class="card-title">JTBC NOW (스트리밍)</div>
+      <div class="card-text">JTBC 공식 OTT. 스마트폰·PC·스마트TV 어디서나. <strong>전 경기 온라인 무료 스트리밍</strong> 지원.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🖥️</span>
+      <div class="card-title">KBS+ (디지털)</div>
+      <div class="card-text">KBS 온라인 스트리밍 서비스. PC 및 모바일로 KBS 중계 경기 시청 가능.</div>
+    </div>
+  </div>
+
+  <!-- ======== 경기장 정보 ======== -->
+  <h2 class="section-title">🏟️ 경기장 정보</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">🌮</span>
+      <div class="card-title">Estadio Guadalajara · 과달라하라</div>
+      <div class="card-text">수용인원 <strong>49,813석</strong>. Liga MX 명문 CD 과달라하라(치바스) 홈구장. FIFA 정책상 스폰서명 → Estadio Guadalajara로 임시 개명. 한국 2경기 개최.</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">⛰️</span>
+      <div class="card-title">Estadio Monterrey · 몬테레이</div>
+      <div class="card-text">수용인원 <strong>53,000석+</strong>. 2015년 개장, 중남미 최첨단 구장. '스틸 자이언트' 별명. 북쪽 관중석에서 <strong>세로 데 라 시야 산(1,820m)</strong> 배경이 압도적!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🎓</span>
+      <div class="card-title">BYU South Field · 프로보 (평가전)</div>
+      <div class="card-text">브리검 영 대학교(BYU) 캠퍼스 내 훈련장. 유타주 프로보는 <strong>해발 1,370m</strong> — 멕시코 경기장(1,566m·해발)에 대비한 고지대 훈련 최적지.</div>
+    </div>
+  </div>
+
+  <!-- ======== FUN FACTS ======== -->
+  <h2 class="section-title">✨ Quick Fun Facts</h2>
+  <div class="cards-grid">
+    <div class="card">
+      <span class="card-icon">👑</span>
+      <div class="card-title">손흥민 — 4번째이자 마지막 월드컵</div>
+      <div class="card-text">LAFC(MLS) 이적 후 처음 맞는 월드컵. 국가대표 <strong>통산 143경기 54골</strong>로 역대 최다 득점 기록 보유. 5골 추가시 신기록 경신!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🌍</span>
+      <div class="card-title">역대 최대 규모 월드컵</div>
+      <div class="card-text">2026년은 <strong>48개국 참가</strong> (기존 32개국 대폭 확대). 아시아(AFC) 쿼터도 4.5장 → <strong>8.5장</strong>으로 증가. 아시아 팀에게 사상 최대 기회!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏅</span>
+      <div class="card-title">11회 연속 본선 진출!</div>
+      <div class="card-text"><strong>1986년부터 11회 연속 본선 진출!</strong> 브라질, 독일, 아르헨티나, 스페인에 이어 세계에서 5번째로 긴 연속 출전 기록. 아시아 최강 계보 유지!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚡</span>
+      <div class="card-title">2022 독일 킬러의 전설</div>
+      <div class="card-text">2018 카타르 예선에서 손흥민이 막판 골을 터뜨려 <strong>디펜딩 챔피언 독일을 2-0 격파</strong>하고 탈락 확정. 월드컵 역대 최대 이변 중 하나!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🏆</span>
+      <div class="card-title">2002 4강의 기억</div>
+      <div class="card-text">아시아 유일의 월드컵 4강 달성. 독일·스페인·이탈리아·포르투갈을 순서대로 격파. <strong>히딩크 감독과 붉은 악마</strong>의 전설은 지금도 계속!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🇰🇷</span>
+      <div class="card-title">멕시코 현지 교민 응원!</div>
+      <div class="card-text">과달라하라·몬테레이의 한인 교민 커뮤니티 총출동 예정. 멕시코 한인 약 <strong>11,000명</strong>이 경기장 응원단으로 결집!</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">🧠</span>
+      <div class="card-title">김민재 — 세계 최고 수비수</div>
+      <div class="card-text">바이에른 뮌헨의 <strong>김민재(26)</strong>. 세계 최정상 수비수로 평가받으며 수비 조직력의 핵심. 멕시코전 멀티 어택을 틀어막을 수 있을까?</div>
+    </div>
+    <div class="card">
+      <span class="card-icon">📊</span>
+      <div class="card-title">아시아 예선 최종 1위 통과</div>
+      <div class="card-text">AFC 3차 예선에서 <strong>유일하게 무패(단 한 번도 지지 않음)</strong>로 통과! 역대 최강 아시아 팀이라는 자부심으로 월드컵 무대에 오른다.</div>
+    </div>
+  </div>
+
+  <!-- ======== 주요 선수 ======== -->
+  <h2 class="section-title">⚽ 주목할 선수들</h2>
+  <div class="players-grid">
+    <div class="player-card">
+      <div class="player-num">7</div>
+      <div class="player-name">손흥민</div>
+      <div class="player-club">🇺🇸 LAFC (MLS)</div>
+      <div class="player-stat">국가대표 최다 득점 · 주장</div>
+    </div>
+    <div class="player-card">
+      <div class="player-num">3</div>
+      <div class="player-name">김민재</div>
+      <div class="player-club">🇩🇪 바이에른 뮌헨</div>
+      <div class="player-stat">세계 최정상 수비수 · CB</div>
+    </div>
+    <div class="player-card">
+      <div class="player-num">10</div>
+      <div class="player-name">이강인</div>
+      <div class="player-club">🇫🇷 파리 생제르망</div>
+      <div class="player-stat">차세대 에이스 · MF</div>
+    </div>
+    <div class="player-card">
+      <div class="player-num">11</div>
+      <div class="player-name">황희찬</div>
+      <div class="player-club">🏴󠁧󠁢󠁥󠁮󠁧󠁿 울버햄튼</div>
+      <div class="player-stat">폭발적 스피드 · FW</div>
+    </div>
+    <div class="player-card">
+      <div class="player-num">9</div>
+      <div class="player-name">조규성</div>
+      <div class="player-club">🏴󠁧󠁢󠁳󠁣󠁴󠁿 셀틱 FC</div>
+      <div class="player-stat">공중볼 강자 · ST</div>
+    </div>
+    <div class="player-card">
+      <div class="player-num">1</div>
+      <div class="player-name">조현우</div>
+      <div class="player-club">🇸🇦 알 힐랄</div>
+      <div class="player-stat">3번째 월드컵 · GK (38세)</div>
+    </div>
+  </div>
+
+  <!-- ======== 일정 요약표 ======== -->
+  <h2 class="section-title">⏰ 전체 일정 요약표 (KST)</h2>
+  <div class="group-box">
+    <div class="group-header">🗓️ 대한민국 2026 월드컵 전체 일정</div>
+    <table class="group-table">
+      <thead>
+        <tr>
+          <th>날짜 (KST)</th>
+          <th>경기</th>
+          <th>KST 시간</th>
+          <th>경기장 · 도시</th>
+          <th>구분</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="korea-row">
+          <td>5/31 (일)</td>
+          <td>🇰🇷 vs 🇹🇹</td>
+          <td><strong>10:00 AM</strong></td>
+          <td>BYU South Field · 프로보, 유타</td>
+          <td><span class="match-type-tag tag-upcoming" style="font-size:10px">내일!</span></td>
+        </tr>
+        <tr>
+          <td>6월 초 (TBD)</td>
+          <td>🇰🇷 vs 🇸🇻</td>
+          <td>미정</td>
+          <td>미국 내 TBD</td>
+          <td><span class="match-type-tag tag-friendly" style="font-size:10px">평가전</span></td>
+        </tr>
+        <tr class="korea-row">
+          <td>6/12 (금)</td>
+          <td>🇰🇷 vs 🇨🇿</td>
+          <td><strong>11:00 AM</strong></td>
+          <td>Estadio Guadalajara · 과달라하라</td>
+          <td><span class="match-type-tag tag-group" style="font-size:10px">A조 1차전</span></td>
+        </tr>
+        <tr class="korea-row">
+          <td>6/19 (금)</td>
+          <td>🇰🇷 vs 🇲🇽</td>
+          <td><strong>10:00 AM</strong></td>
+          <td>Estadio Guadalajara · 과달라하라</td>
+          <td><span class="match-type-tag tag-group" style="font-size:10px">A조 2차전</span></td>
+        </tr>
+        <tr class="korea-row">
+          <td>6/25 (목)</td>
+          <td>🇰🇷 vs 🇿🇦</td>
+          <td><strong>10:00 AM</strong></td>
+          <td>Estadio Monterrey · 몬테레이</td>
+          <td><span class="match-type-tag tag-group" style="font-size:10px">A조 3차전</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 응원 배너 -->
+  <div style="background:linear-gradient(135deg,rgba(200,16,46,0.14),rgba(0,48,135,0.1));border:1px solid rgba(200,16,46,0.22);border-radius:16px;padding:24px;margin-top:10px;text-align:center;">
+    <div style="font-size:36px;margin-bottom:12px;">🇰🇷 ⚽ 🔥</div>
+    <div style="font-size:22px;font-weight:900;margin-bottom:8px;letter-spacing:2px;">대~한민국!  짝짝짝 짝짝!</div>
+    <div style="font-size:14px;color:var(--subtext);">2002의 신화를 멕시코 땅에서 다시 한번.<br>붉은 악마와 함께 — 16강, 8강, 그리고 그 이상을!</div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>⚠️ 경기 일정·시간·중계 채널은 변경될 수 있습니다. 최신 정보는 공식 <strong>KFA</strong> / <strong>FIFA.com</strong> / <strong>JTBC 스포츠</strong>에서 확인하세요.</p>
+  <p style="margin-top:6px;">자료 기준: 2026년 5월 30일 &nbsp;|&nbsp; 모든 시간 KST (한국 표준시, UTC+9) 기준</p>
+</div>
+
+</body>
+</html>
